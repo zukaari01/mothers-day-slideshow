@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mother's Day Slideshow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: "Gamja Flower", sans-serif;
+      background-color: pink;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      text-align: center;
+      padding: 10px;
+      font-size: 30px;
+      height: 50px;
+      flex-shrink: 0;
+      color: #c2185b; /* dark pink */
+    }
+
+    .container {
+      flex: 1;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .image-area {
+      flex: 1;
+      position: relative;
+      background-color: black;
+    }
+
+    .mySlides {
+      display: none;
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+    }
+
+    .mySlides.active {
+      display: block;
+    }
+
+    .mySlides img {
+      position: absolute;
+      top: 0; bottom: 0;
+      left: 0; right: 0;
+      margin: auto;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    .numbertext {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      color: white;
+      font-size: 14px;
+      z-index: 2;
+    }
+
+    .prev, .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      color: white;
+      font-size: 32px;
+      font-weight: bold;
+      padding: 10px;
+      background-color: rgba(0,0,0,0.5);
+      cursor: pointer;
+      user-select: none;
+      z-index: 10;
+    }
+
+    .prev:hover, .next:hover {
+      background-color: rgba(0,0,0,0.8);
+    }
+
+    .prev { left: 10px; }
+    .next { right: 10px; }
+
+    .bottom {
+      background-color: #111;
+      flex-shrink: 0;
+    }
+
+    .caption-container {
+      text-align: center;
+      color: white;
+      font-size: 20px;
+      padding: 5px;
+    }
+
+    .row {
+      display: flex;
+      overflow-x: auto;
+      justify-content: center;
+      padding: 10px;
+    }
+
+    .column {
+      flex: 0 0 auto;
+      padding: 0 5px;
+    }
+
+    .column img {
+      height: 60px;
+      border-radius: 4px;
+      cursor: pointer;
+      opacity: 0.6;
+      object-fit: cover;
+    }
+
+    .column img.active,
+    .column img:hover {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <i class="fa-solid fa-heart"></i> Happy Mother's Day <i class="fa-solid fa-heart"></i>
+  </header>
+
+  <div class="container">
+    <div class="image-area">
+
+      <div class="mySlides active">
+        <img src="img/Mom Photo Singular - Copy.jpg" alt="To my one and only mother ">
+        <div class="numbertext">1 / 6</div>
+      </div>
+
+      <div class="mySlides">
+        <img src="img/Baby and Mom.jpg" alt="Whose kindness has raised me from day one">
+        <div class="numbertext">2 / 6</div>
+      </div>
+
+      <div class="mySlides">
+        <img src="img/Archery.jpg" alt="She's brave, resourceful, and soft">
+        <div class="numbertext">3 / 6</div>
+      </div>
+      
+      <div class="mySlides">
+        <img src="img/Going Away.jpg" alt="Since I've gone away, I haven't been the best daughter">
+        <div class="numbertext">4 / 6</div>
+      </div>
+
+      <div class="mySlides">
+        <img src="img/Silly.jpg" alt="But you've stuck with me through thick and thin">
+        <div class="numbertext">5 / 6</div>
+      </div>
+      
+      <div class="mySlides">
+        <img src="img/Hearts Filter.jpg" alt="Thank you, I love you, and wish you a Happy Mother's Day <3">
+        <div class="numbertext">6 / 6</div>
+      </div>
+
+      <a class="prev" onclick="plusSlides(-1)">❮</a>
+      <a class="next" onclick="plusSlides(1)">❯</a>
+    </div>
+
+    <div class="bottom">
+      <div class="caption-container">
+        <p id="caption">The Woods</p>
+      </div>
+      <div class="row">
+        <div class="column">
+          <img class="demo active" src="img/Mom Photo Singular - Copy.jpg" onclick="currentSlide(1)" alt="To my one and only mother">
+        </div>
+        <div class="column">
+          <img class="demo" src="img/Baby and Mom.jpg" onclick="currentSlide(2)" alt="Whose kindness has raised me from day one">
+        </div>
+        <div class="column">
+          <img class="demo" src="img/Archery.jpg" onclick="currentSlide(3)" alt="She's brave, resourceful, and soft">
+        </div>
+        <div class="column">
+          <img class="demo" src="img/Going Away.jpg" onclick="currentSlide(4)" alt="Since I've gone away, I haven't been the best daughter">
+        </div>
+        <div class="column">
+          <img class="demo" src="img/Silly.jpg" onclick="currentSlide(5)" alt="But you've stuck with me through thick and thin">
+        </div>    
+        <div class="column">
+          <img class="demo" src="img/Hearts Filter.jpg" onclick="currentSlide(6)" alt="Thank you, I love you, and wish you a Happy Mother's Day <3">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+      let i;
+      let slides = document.getElementsByClassName("mySlides");
+      let dots = document.getElementsByClassName("demo");
+      let captionText = document.getElementById("caption");
+
+      if (n > slides.length) { slideIndex = 1 }
+      if (n < 1) { slideIndex = slides.length }
+
+      for (i = 0; i < slides.length; i++) {
+        slides[i].classList.remove("active");
+      }
+
+      for (i = 0; i < dots.length; i++) {
+        dots[i].classList.remove("active");
+      }
+
+      slides[slideIndex - 1].classList.add("active");
+      dots[slideIndex - 1].classList.add("active");
+      captionText.innerHTML = dots[slideIndex - 1].alt;
+    }
+  </script>
+</body>
+</html>
